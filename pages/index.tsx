@@ -1,4 +1,4 @@
-// import Head from 'next/head';
+import Head from 'next/head';
 // import Image from 'next/image';
 
 import useGetPlantDirectory from '../hooks/useGetPlantDirectory';
@@ -11,6 +11,15 @@ function Home() {
 
   return (
     <div className="container mx-auto">
+      <Head>
+        <title>Natural Planting</title>
+        <meta
+          name="description"
+          content="A resource for planting a natural garden."
+        />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+
       <div className="max-w-7xl mx-auto mt-8 px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
           <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">

@@ -29,12 +29,9 @@ export default function Table({ cols = [], rows = [] }: Props) {
                 {rows.map((row, index) => (
                   <tr key={index}>
                     {row.c.map((cell, index) => (
-                      <td
-                        key={cell?.v + index}
-                        className="px-6 py-4 whitespace-nowrap"
-                      >
+                      <td key={index} className="px-6 py-4 whitespace-nowrap">
                         <div className="text-sm font-medium text-gray-900">
-                          {cell?.v}
+                          {cell?.v || ''}
                         </div>
                         <div className="text-sm text-gray-500">{}</div>
                       </td>

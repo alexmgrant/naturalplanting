@@ -1,4 +1,5 @@
 // import App from 'next/app'
+import 'tippy.js/dist/tippy.css'; // optional for styling
 import 'tailwindcss/tailwind.css';
 
 function MyApp({ Component, pageProps }) {

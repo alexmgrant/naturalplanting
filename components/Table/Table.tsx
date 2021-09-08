@@ -27,14 +27,14 @@ export default function Table({ cols = [], rows = [] }: Props) {
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {rows.map((row, index) => (
-                  <tr key={cols[index].id}>
-                    {row.c.map((cell) => (
+                  <tr key={index}>
+                    {row.c.map((cell, index) => (
                       <td
-                        key={cols[index].id}
+                        key={cell?.v + index}
                         className="px-6 py-4 whitespace-nowrap"
                       >
                         <div className="text-sm font-medium text-gray-900">
-                          {cell.v}
+                          {cell?.v}
                         </div>
                         <div className="text-sm text-gray-500">{}</div>
                       </td>

@@ -1,17 +1,15 @@
-import { HeaderGroup, Row } from 'react-table';
-
 enum TableRender {
   Header = 'Header',
   Cell = 'Cell',
 }
 
-type Props = {
-  headerGroups: HeaderGroup[];
-  rows: Row[];
-  prepareRow: (row: Row) => void;
-};
+// type Props = {
+//   headerGroups: HeaderGroup[];
+//   rows: Row[];
+//   prepareRow: (row: Row) => void;
+// };
 
-export default function Table({ headerGroups, rows, prepareRow }: Props) {
+export default function Table({ headerGroups, rows, prepareRow }) {
   return (
     <div className="flex flex-col">
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -25,14 +23,25 @@ export default function Table({ headerGroups, rows, prepareRow }: Props) {
                   return (
                     <tr key={key}>
                       {headerGroup.headers.map((column) => {
-                        const { key } = column.getHeaderProps();
+                        const sortedHeaderProps = column.getHeaderProps(
+                          column.getSortByToggleProps()
+                        );
+                        const { key } = sortedHeaderProps;
 
                         return (
                           <th
+                            {...sortedHeaderProps}
                             key={key}
                             className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                           >
                             {column.render(TableRender.Header)}
+                            <span className="pl-1">
+                              {column.isSorted
+                                ? column.isSortedDesc
+                                  ? ' 🔽'
+                                  : ' 🔼'
+                                : ''}
+                            </span>
                           </th>
                         );
                       })}

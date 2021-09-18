@@ -5,6 +5,7 @@ import {
   TableInstance,
   FilterValue,
   TableState,
+  useSortBy,
 } from 'react-table';
 import { Table } from 'components/Table';
 import { usePlantDirectoryContext } from 'context/PlantDirectory';
@@ -24,7 +25,7 @@ export default function PlantDirectory() {
   const { columns, data } = plantDirectoryData;
 
   const { headerGroups, rows, state, prepareRow, setGlobalFilter }: Table =
-    useTable({ columns, data }, useGlobalFilter);
+    useTable({ columns, data }, useGlobalFilter, useSortBy);
 
   return (
     <>

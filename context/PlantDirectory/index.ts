@@ -1,3 +1,4 @@
-import { PlantDirectoryProvider, usePlantDirectory } from './PlantDirectory';
-
-export { PlantDirectoryProvider, usePlantDirectory };
+export {
+  PlantDirectoryProvider,
+  usePlantDirectoryContext,
+} from './PlantDirectoryContext';

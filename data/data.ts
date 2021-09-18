@@ -1,0 +1,20 @@
+export const data = [
+  {
+    col15: 'Dislikes heat',
+    col14: 3,
+    col13: 'Dr',
+    col12: 'Su-HSh',
+    col11: 'Mod',
+    col10: 'Med',
+    col9: 'Mod',
+    col8: 'Per',
+    col7: 'short',
+    col6: 'M-L Su',
+    col5: 'SM',
+    col4: '5-7',
+    col3: '0.5-1.0',
+    col2: 'M',
+    col1: 'Siberian catmint',
+    col0: 'Nepta sibrica',
+  },
+];

@@ -1,11 +1,12 @@
-import { ChangeEvent } from 'react';
-import { usePlantDirectory } from '../../context/PlantDirectory';
+import { ChangeEvent, useState } from 'react';
 
-export default function SearchInput() {
-  const { search = '', setSearch } = usePlantDirectory();
-
+export default function SearchInput({ setGlobalFilter, globalFilter }) {
+  const [search, setSearch] = useState(globalFilter);
   const handleOnChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
-    setSearch(target.value);
+    const { value } = target;
+
+    setSearch(value);
+    setGlobalFilter(value);
   };
 
   return (
@@ -26,7 +27,7 @@ export default function SearchInput() {
           type="text"
           name="search"
           id="search"
-          className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
+          className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-8 pr-12 sm:text-sm border-gray-300 rounded-md"
           placeholder=""
         />
       </div>

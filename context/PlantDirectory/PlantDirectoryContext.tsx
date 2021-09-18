@@ -3,16 +3,14 @@ import {
   Dispatch,
   SetStateAction,
   useContext,
+  useMemo,
   useState,
 } from 'react';
-
-import useGetPlantDir, {
-  GSPlantDirectory,
-} from '../../hooks/useGetPlantDirectory';
-import { filterTable } from './utilities';
+import { PlantDirectoryTable } from 'data/types';
+import { columns, data } from 'data';
 
 type PlantDirectoryContext = {
-  plantTable: GSPlantDirectory | null;
+  plantDirectoryData: PlantDirectoryTable | null;
   search: string;
   setSearch: Dispatch<SetStateAction<string>>;
 };
@@ -22,16 +20,21 @@ const PlantDirectoryContext = createContext<PlantDirectoryContext>(
 );
 
 function PlantDirectoryProvider({ children }: { children: any }) {
-  let [plantTable] = useGetPlantDir();
   const [search, setSearch] = useState('');
 
-  const filterPlantTable = filterTable(plantTable);
+  const plantDirectoryData: PlantDirectoryTable = useMemo(
+    () => ({
+      columns,
+      data,
+    }),
+    []
+  );
 
-  if (search.length) {
-    plantTable = filterPlantTable(search);
-  }
-
-  const value = { search, setSearch, plantTable };
+  const value = {
+    search,
+    setSearch,
+    plantDirectoryData,
+  };
 
   return (
     <PlantDirectoryContext.Provider value={value}>
@@ -40,15 +43,15 @@ function PlantDirectoryProvider({ children }: { children: any }) {
   );
 }
 
-function usePlantDirectory() {
+function usePlantDirectoryContext() {
   const context = useContext(PlantDirectoryContext);
   if (context === undefined) {
     throw new Error(
-      'usePlantDirectory must be used within a PlantDirectoryProvider'
+      'usePlantDirectoryContext must be used within a PlantDirectoryProvider'
     );
   }
 
   return context;
 }
 
-export { PlantDirectoryProvider, usePlantDirectory };
+export { PlantDirectoryProvider, usePlantDirectoryContext };

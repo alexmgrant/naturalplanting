@@ -7,8 +7,8 @@ import {
   TableState,
   useSortBy,
 } from 'react-table';
+import { columns } from 'data';
 import { Table } from 'components/Table';
-import { usePlantDirectoryContext } from 'context/PlantDirectory';
 import { Filters } from './components';
 
 interface State extends TableState {
@@ -20,10 +20,7 @@ interface Table extends TableInstance {
   state: State;
 }
 
-export default function PlantDirectory() {
-  const { plantDirectoryData } = usePlantDirectoryContext();
-  const { columns, data } = plantDirectoryData;
-
+export default function PlantDirectory({ plants: data }) {
   const { headerGroups, rows, state, prepareRow, setGlobalFilter }: Table =
     useTable({ columns, data }, useGlobalFilter, useSortBy);
 

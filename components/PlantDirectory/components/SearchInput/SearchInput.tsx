@@ -1,7 +1,8 @@
 import { ChangeEvent, useState } from 'react';
 
-export default function SearchInput({ setGlobalFilter, globalFilter }) {
+export default function SearchInput({ setGlobalFilter, globalFilter = '' }) {
   const [search, setSearch] = useState(globalFilter);
+
   const handleOnChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     const { value } = target;
 

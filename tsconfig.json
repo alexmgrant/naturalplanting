@@ -18,7 +18,7 @@
       "components/*": ["./components/*"],
       "hooks/*": ["./hooks/*"],
       "data/*": ["./data/*"],
-      "context/*": ["./context/*"]
+      "utilities/*": ["./utilities/*"]
     }
   },
   "exclude": ["node_modules", ".next", "out"],

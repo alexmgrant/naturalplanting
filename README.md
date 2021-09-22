@@ -1,6 +1,6 @@
 # Naturual Planting
 
-[naturalplanting.com](https://naturualplanting.com)
+[naturalplanting.com](https://www.naturalplanting.com/)
 
 ## Preview
 

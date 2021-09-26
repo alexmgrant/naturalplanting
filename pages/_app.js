@@ -1,8 +1,13 @@
 // import App from 'next/app'
+import { SessionProvider } from 'next-auth/react';
 import 'tailwindcss/tailwind.css';
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <SessionProvider>
+      <Component {...pageProps} />
+    </SessionProvider>
+  );
 }
 
 // Only uncomment this method if you have blocking data requirements for

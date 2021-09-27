@@ -53,7 +53,7 @@ const NameColumn = ({ name, row }) => {
           className="fixed inset-0 sm:inset-1/4 z-10 overflow-y-auto"
           onClose={closeModal}
         >
-          <div className="min-h-screen px-4 text-center">
+          <div className="px-4 text-center">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"

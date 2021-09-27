@@ -30,7 +30,7 @@ export default function PlantDirectory({ plants: data }) {
         globalFilter={state.globalFilter}
         setGlobalFilter={setGlobalFilter}
       />
-      <div className="mt-8 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+      <div className="mt-8 shadow border-b border-gray-200 sm:rounded-lg">
         <Table
           headerGroups={headerGroups}
           rows={rows}

@@ -58,6 +58,7 @@ model VerificationToken {
 
 model Plant {
   id                 String @id @default(cuid())
+  wiki               PlantWiki?
   name               String
   cultivarName       String
   height             String
@@ -74,4 +75,13 @@ model Plant {
   habitatSoil        String
   zone               String
   notes              String
+}
+
+model PlantWiki {
+  id String @id @default(cuid())
+  fullurl String
+  image String
+  thumbnail String
+  plantId String
+  plant Plant @relation(fields: [plantId], references: [id])
 }

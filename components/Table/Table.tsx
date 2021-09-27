@@ -80,7 +80,7 @@ const NameColumn = ({ name, row }) => {
                   className="text-lg leading-6 font-medium text-gray-900 mb-4"
                 >
                   <div className="flex justify-between">
-                    <div>{name}</div>
+                    {name}
                     <button
                       onClick={closeModal}
                       className="self-end text-gray-400 hover:text-gray-900"
